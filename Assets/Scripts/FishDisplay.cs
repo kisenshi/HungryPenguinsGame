@@ -4,29 +4,38 @@ using System.Collections;
 
 public class FishDisplay : MonoBehaviour {
 
-    public int fishes;
-    public int collected
-    {
-        private set; get;
-    }
+	public GameObject levelManager;
+
+	private LevelManager lm;
+	private bool updateNextFrame;
 
 	// Use this for initialization
 	void Start () {
-        CollectFish.onCollect += getFish;
-        setCollected();
+		lm = levelManager.GetComponent<LevelManager>();
+
+		updateNextFrame = true;
+		setCollected ();
+
+		CollectFish.onCollect += setCollected;
 	
 	}
 	
     void setCollected()
     {
-        GetComponent<Text>().text = collected + " / " + fishes;
+		updateNextFrame = true;
     }
 
-	void getFish()
-    {
-        collected++;
-        setCollected();
-    }
-	
-	
+	void Update(){
+		if (updateNextFrame) {
+			GetComponent<Text> ().text = lm.nCollectedFish + " / " + lm.nTotalFish;
+			updateNextFrame = false;
+		}
+	}
+
+
+	void OnDisable(){
+		CollectFish.onCollect -= setCollected;
+	}
+
+
 }

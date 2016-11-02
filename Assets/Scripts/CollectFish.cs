@@ -6,8 +6,6 @@ public class CollectFish : MonoBehaviour {
     public delegate void collect();
     public static event collect onCollect;
 
-
-
     void OnTriggerEnter2D(Collider2D c)
     {
 

@@ -3,21 +3,15 @@ using System.Collections;
 
 public class LevelExit : MonoBehaviour {
 
-	public GameObject display;
-	private FishDisplay fd;
+	public GameObject levelManager;
+	private LevelManager lm;
 
 	void Start(){
-	
-		fd = display.GetComponent<FishDisplay> ();
-	
-	}
-
-	private bool levelComplete(){
-		return fd.collected >= fd.fishes;
+		lm = levelManager.GetComponent<LevelManager>();
 	}
 
 	void OnTriggerEnter2D(Collider2D c){
-		if (levelComplete() && c.gameObject.name == "Penguin") {
+		if (lm.isLevelCompleted() && c.gameObject.name == "Penguin") {
 			Debug.Log ("Works!");
 		}
 	}
