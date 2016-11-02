@@ -45,10 +45,13 @@ public class PenguinController : MonoBehaviour
 
     }
 
-    /**void LateUpdate()
+    void LateUpdate()
     {
-        if (GetComponent<Rigidbody2D>().velocity.x < 0) { GetComponent<SpriteRenderer>().sprite.}
-    }*/
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        if (!sr.flipX && GetComponent<Rigidbody2D>().velocity.x < 0) { GetComponent<SpriteRenderer>().flipX=true; }
+        else if (sr.flipX && GetComponent<Rigidbody2D>().velocity.x > 0) { GetComponent<SpriteRenderer>().flipX = false; }
+    }
 
     private void Walk(Vector2 dir)
     {
@@ -64,10 +67,7 @@ public class PenguinController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D c)
-    {
-        if (c.gameObject.name == "Fish") Destroy(c.gameObject);
-    }
+    
 
 }
 
