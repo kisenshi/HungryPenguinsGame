@@ -5,7 +5,7 @@ public class GameOverWrap : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		DeathBarrier.onDeath += activateAll;
+		LevelManager.onDeath += activateAll;
 	}
 
 	private void activateAll(){
@@ -15,6 +15,6 @@ public class GameOverWrap : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		DeathBarrier.onDeath -= activateAll;
+		LevelManager.onDeath -= activateAll;
 	}
 }

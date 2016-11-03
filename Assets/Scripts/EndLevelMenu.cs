@@ -5,7 +5,7 @@ public class EndLevelMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		LevelExit.onFinish += activateAll;
+		LevelManager.onFinish += activateAll;
 	}
 	
 	private void activateAll(){
@@ -15,6 +15,6 @@ public class EndLevelMenu : MonoBehaviour {
 	}
 
 	void OnDestroy(){
-		LevelExit.onFinish -= activateAll;
+		LevelManager.onFinish -= activateAll;
 	}
 }

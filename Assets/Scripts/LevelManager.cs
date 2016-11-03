@@ -2,33 +2,60 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public static class LevelManager{
 
-	public int nTotalFish;
-	public int nCollectedFish {
-		get;
-		private set;
-	}
-	public int nLevel;
-	public string nextLevelTag;
+	public static int nTotalFish =0;
+	public static int nCollectedFish =0;
+	public static int nLevel;
+	public static string nextLevelTag;
+	private static LevelData ld;
 
-	void Start(){
+	public delegate void gameEvent();
+	public static event gameEvent onCollect;
+	public static event gameEvent onDeath;
+	public static event gameEvent onFinish;
+
+
+
+
+	public static void initialize(){
+		ld = GameObject.Find ("LevelData").GetComponent<LevelData> ();
+		nTotalFish = ld.nTotalFish;
 		nCollectedFish = 0;
-		CollectFish.onCollect += collectFish;
+		nextLevelTag = ld.nextLevelTag;
 	}
-		
-	public void collectFish()
+
+
+
+	public static void collectFish()
 	{
 		nCollectedFish ++;
+		if (onCollect != null) onCollect();
 
 	}
 
-	public bool isLevelCompleted()
+	public static void lose(){
+		if (onDeath != null) onDeath();
+	}
+
+	public static void win(){
+		if (onFinish != null) onFinish();
+	}
+
+	public static bool isLevelCompleted()
 	{
 		return nCollectedFish >= nTotalFish;
 	}
 
-	void onDestroy(){
-		CollectFish.onCollect -= collectFish;
+	public static void restartLevel(){
+		int scene = SceneManager.GetActiveScene().buildIndex;
+		SceneManager.LoadScene(scene, LoadSceneMode.Single);
 	}
+
+	public static void LoadNextLevel(){
+		SceneManager.LoadScene(nextLevelTag, LoadSceneMode.Single);
+		//initialize ();
+	}
+		
+
 }

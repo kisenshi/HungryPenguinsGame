@@ -3,8 +3,6 @@ using System.Collections;
 
 public class DeathBarrier : MonoBehaviour {
 
-	public delegate void death();
-	public static event death onDeath;
 
 	void OnTriggerEnter2D(Collider2D c)
 	{
@@ -12,7 +10,7 @@ public class DeathBarrier : MonoBehaviour {
 		if (c.gameObject.name == "Penguin")
 		{
 			c.gameObject.SetActive(false);
-			onDeath();
+			LevelManager.lose ();
 		}
 	}
 

@@ -6,17 +6,17 @@ public class FishDisplay : MonoBehaviour {
 
 	public GameObject levelManager;
 
-	private LevelManager lm;
+	//private LevelManager lm;
 	private bool updateNextFrame;
 
 	// Use this for initialization
 	void Start () {
-		lm = levelManager.GetComponent<LevelManager>();
+		//lm = levelManager.GetComponent<LevelManager>();
 
 		updateNextFrame = true;
 		setCollected ();
 
-		CollectFish.onCollect += setCollected;
+		LevelManager.onCollect += setCollected;
 	
 	}
 	
@@ -27,14 +27,14 @@ public class FishDisplay : MonoBehaviour {
 
 	void Update(){
 		if (updateNextFrame) {
-			GetComponent<Text> ().text = lm.nCollectedFish + " / " + lm.nTotalFish;
+			GetComponent<Text> ().text = LevelManager.nCollectedFish + " / " + LevelManager.nTotalFish;
 			updateNextFrame = false;
 		}
 	}
 
 
 	void OnDisable(){
-		CollectFish.onCollect -= setCollected;
+		LevelManager.onCollect -= setCollected;
 	}
 
 
