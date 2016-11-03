@@ -4,21 +4,26 @@ using System.Collections;
 public abstract class PersistentUIInterface : MonoBehaviour {
 
 
-	sealed void  Start(){
+
+
+
+	//DO NOT IMPLEMENT IN CHILDREN
+	void Start(){
 		DontDestroyOnLoad (this.gameObject);
+		Debug.Log ("superclass call");
 		myStart ();
 	}
 
-	void myStart();
+	protected abstract void myStart();
 
-	sealed void OnLevelWasLoaded(){
+	 void OnLevelWasLoaded(){
 		reset ();
 		myOnLevelWasLoaded ();
 	}
 
-	void myOnLevelWasLoaded ();
+	protected abstract void myOnLevelWasLoaded ();
 
-	void reset();
+	protected abstract void reset();
 
 
 
