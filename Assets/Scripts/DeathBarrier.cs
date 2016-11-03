@@ -12,6 +12,7 @@ public class DeathBarrier : MonoBehaviour {
 		if (c.gameObject.name == "Penguin")
 		{
 //			GameManager.restartLevel();
+			c.gameObject.SetActive(false);
 			onDeath();
 		}
 	}
