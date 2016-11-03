@@ -6,15 +6,25 @@ public class EndLevelMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		LevelManager.onFinish += activateAll;
+		LevelManager.resume += deactivateAll;
 	}
-	
+
 	private void activateAll(){
 		foreach (Transform child in transform) {
-			child.gameObject.SetActive (true);
+			if(child!=gameObject) child.gameObject.SetActive (true);
 		}
 	}
 
+	private void deactivateAll(){
+		foreach (Transform child in transform) {
+			if(child!=gameObject) child.gameObject.SetActive (false);
+		}
+	}
+
+
+
 	void OnDestroy(){
+		LevelManager.resume -= deactivateAll;
 		LevelManager.onFinish -= activateAll;
 	}
 }

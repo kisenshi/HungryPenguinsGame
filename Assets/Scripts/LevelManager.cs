@@ -10,7 +10,9 @@ public static class LevelManager{
 	public static string nextLevelTag;
 	private static LevelData ld;
 
+
 	public delegate void gameEvent();
+	public static event gameEvent resume;
 	public static event gameEvent onCollect;
 	public static event gameEvent onDeath;
 	public static event gameEvent onFinish;
@@ -25,7 +27,9 @@ public static class LevelManager{
 		nextLevelTag = ld.nextLevelTag;
 	}
 
-
+	public static void closeMenus(){
+		if (resume != null) resume();
+	}
 
 	public static void collectFish()
 	{

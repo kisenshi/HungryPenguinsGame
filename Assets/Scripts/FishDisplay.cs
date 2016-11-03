@@ -2,24 +2,25 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class FishDisplay : MonoBehaviour {
+public class FishDisplay : PersistentUIInterface {
 
-	public GameObject levelManager;
 
-	//private LevelManager lm;
+
 	private bool updateNextFrame;
 
-	// Use this for initialization
-	void Start () {
-		//lm = levelManager.GetComponent<LevelManager>();
 
+
+	protected override void myStart(){
+		
+		initialize ();
+		LevelManager.onCollect += setCollected;
+	}
+
+	void initialize(){
 		updateNextFrame = true;
 		setCollected ();
-
-		LevelManager.onCollect += setCollected;
-	
 	}
-	
+
     void setCollected()
     {
 		updateNextFrame = true;
@@ -32,6 +33,13 @@ public class FishDisplay : MonoBehaviour {
 		}
 	}
 
+	protected override void myOnLevelWasLoaded(){
+	
+	}
+
+	protected override void reset(){
+		initialize ();
+	}
 
 	void OnDisable(){
 		LevelManager.onCollect -= setCollected;

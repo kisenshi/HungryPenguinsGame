@@ -11,7 +11,6 @@ public abstract class PersistentUIInterface : MonoBehaviour {
 	//OR ELSE
 	void Start(){
 		DontDestroyOnLoad (this.gameObject);
-		Debug.Log ("superclass call");
 		myStart ();
 	}
 
