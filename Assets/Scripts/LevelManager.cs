@@ -13,7 +13,6 @@ public class LevelManager : MonoBehaviour {
 	public string nextLevelTag;
 
 	void Start(){
-//		GameObject.Find("EndLevelMsg").gameObject.SetActive(false);
 		nCollectedFish = 0;
 		CollectFish.onCollect += collectFish;
 	}
