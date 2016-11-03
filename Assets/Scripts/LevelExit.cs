@@ -12,7 +12,7 @@ public class LevelExit : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D c){
 		if (lm.isLevelCompleted() && c.gameObject.name == "Penguin") {
-			Debug.Log ("Works!");
+			GameManager.LoadNextLevel ();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
@@ -8,10 +9,14 @@ public class LevelManager : MonoBehaviour {
 		get;
 		private set;
 	}
+	public int nLevel;
+	public string nextLevelTag;
 
 	void Start(){
 		nCollectedFish = 0;
 		CollectFish.onCollect += collectFish;
+		Debug.Log (nLevel);
+		Debug.Log (nextLevelTag);
 	}
 		
 	public void collectFish()
