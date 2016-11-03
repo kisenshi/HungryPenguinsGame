@@ -1,14 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 public class DeathBarrier : MonoBehaviour {
 
-	private void restartCurrentLevel()
-	{
-		int scene = SceneManager.GetActiveScene().buildIndex;
-		SceneManager.LoadScene(scene, LoadSceneMode.Single);
-	}
+
 
 
 	void OnTriggerEnter2D(Collider2D c)
@@ -16,7 +11,7 @@ public class DeathBarrier : MonoBehaviour {
 
 		if (c.gameObject.name == "Penguin")
 		{
-			restartCurrentLevel();
+			GameManager.restartLevel();
 		}
 	}
 
