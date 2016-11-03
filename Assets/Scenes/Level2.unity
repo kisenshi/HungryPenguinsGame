@@ -386,7 +386,7 @@ Prefab:
     - target: {fileID: 114000013360574436, guid: c7348cee917184e5f9409a98cc0685d7,
         type: 2}
       propertyPath: nextLevelTag
-      value: Level1
+      value: gameEnd
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7348cee917184e5f9409a98cc0685d7, type: 2}
