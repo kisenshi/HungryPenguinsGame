@@ -13,10 +13,9 @@ public class LevelManager : MonoBehaviour {
 	public string nextLevelTag;
 
 	void Start(){
+//		GameObject.Find("EndLevelMsg").gameObject.SetActive(false);
 		nCollectedFish = 0;
 		CollectFish.onCollect += collectFish;
-		Debug.Log (nLevel);
-		Debug.Log (nextLevelTag);
 	}
 		
 	public void collectFish()
@@ -28,5 +27,9 @@ public class LevelManager : MonoBehaviour {
 	public bool isLevelCompleted()
 	{
 		return nCollectedFish >= nTotalFish;
+	}
+
+	void onDestroy(){
+		CollectFish.onCollect -= collectFish;
 	}
 }
