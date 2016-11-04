@@ -77,7 +77,7 @@ public class PenguinController : MonoBehaviour
         if (groundHitYN)
         {
             
-            r.AddForce(transform.up * 250, ForceMode2D.Force);
+            r.AddForce(transform.up * 300, ForceMode2D.Force);
         }
     }
 
