@@ -12,4 +12,14 @@ public class PersistentUI : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	void OnLevelWasLoaded(){
+
+		Debug.Log ("Loaded");
+
+		if (LevelManager.isFinal ()) {
+			Debug.Log ("Go away now");
+			Destroy (gameObject);
+		}
+	}
 }

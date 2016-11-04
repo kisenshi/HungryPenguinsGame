@@ -6,8 +6,9 @@ public class LevelData : MonoBehaviour {
 	[SerializeField] public int nLevel;
 	[SerializeField] public string nextLevelTag;
 	[SerializeField] public int nTotalFish;
+	public bool finalLevel;
 
-	void Start(){
+	void Awake(){
 		LevelManager.initialize ();
 	}
 }
