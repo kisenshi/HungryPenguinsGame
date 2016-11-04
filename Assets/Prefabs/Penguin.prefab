@@ -83,7 +83,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 1000010398571772}
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_IsKinematic: 0
@@ -113,7 +113,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1000010398571772}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 333cfff8e132c44a6822640c163b676b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accel: 8
-  maxspeed: 0
+  maxspeed: 3.5
 --- !u!114 &114000013445623450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,7 +171,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 1efefa87064165949a99bad8a8c6fa03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

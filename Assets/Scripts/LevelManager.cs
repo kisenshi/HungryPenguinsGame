@@ -26,7 +26,6 @@ public static class LevelManager{
 		nCollectedFish = 0;
 		nextLevelTag = ld.nextLevelTag;
 
-		Debug.Log ("Initializing. Final stage: " + ld.finalLevel);
 	}
 
 	public static bool isFinal(){

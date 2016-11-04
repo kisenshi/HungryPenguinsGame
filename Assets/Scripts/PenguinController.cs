@@ -35,6 +35,7 @@ public class PenguinController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+			
             Walk(-transform.right * accel);
         }
 
@@ -48,9 +49,22 @@ public class PenguinController : MonoBehaviour
     void LateUpdate()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
+		Rigidbody2D vel = gameObject.GetComponent<Rigidbody2D> ();
+		float y = vel.velocity.y;
+		float x = vel.velocity.x;
 
-        if (!sr.flipX && GetComponent<Rigidbody2D>().velocity.x < 0) { GetComponent<SpriteRenderer>().flipX=true; }
-        else if (sr.flipX && GetComponent<Rigidbody2D>().velocity.x > 0) { GetComponent<SpriteRenderer>().flipX = false; }
+
+
+
+		if (!sr.flipX && GetComponent<Rigidbody2D> ().velocity.x < -0.1) {GetComponent<SpriteRenderer>().flipX=true; }
+        else if (sr.flipX && GetComponent<Rigidbody2D>().velocity.x >= 0.1) { GetComponent<SpriteRenderer>().flipX = false; }
+
+		
+		
+
+
+		vel.velocity = x > maxspeed ? new Vector2(maxspeed,y) : x < -maxspeed ? new Vector2(-maxspeed,y) : vel.velocity;
+
     }
 
     private void Walk(Vector2 dir)
