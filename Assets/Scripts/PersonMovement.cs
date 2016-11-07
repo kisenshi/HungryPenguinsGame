@@ -6,13 +6,25 @@ public class PersonMovement : Grounded {
     public bool moving;
     public float accel;
     public float maxSpeed;
-    private bool facingright;
+    public bool facingright
+    {
+        get; private set;
+    }
+    public bool flipped;
     private Rigidbody2D r;
 
 	// Use this for initialization
 	void Start () {
 
-        facingright = !gameObject.GetComponent<SpriteRenderer>().flipX;
+        if (flipped) flip();
+        facingright = !flipped;
+
+        if (!moving)
+        {
+            gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
+        }
+        
+        //facingright = !gameObject.GetComponent<SpriteRenderer>().flipX;
         r = GetComponent<Rigidbody2D>();
 
 	}
@@ -35,12 +47,8 @@ public class PersonMovement : Grounded {
 
             else
             {
-
-                float x = transform.localScale.x;
-                float y = transform.localScale.y;
-                facingright = !facingright;
-
-                transform.localScale = new Vector2(-x, y);
+                flip();
+               
 
                 //gameObject.GetComponent<SpriteRenderer>().flipX = !facingright;
             }
@@ -48,6 +56,16 @@ public class PersonMovement : Grounded {
         }
 
 	}
+
+    void flip()
+    {
+
+        float x = transform.localScale.x;
+        float y = transform.localScale.y;
+        facingright = !facingright;
+
+        transform.localScale = new Vector2(-x, y);
+    }
 
     void LateUpdate()
     {

@@ -32,7 +32,7 @@ public class PushDetect : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D c)
     {
-        if (c.gameObject.layer == 9 || c.gameObject.layer == 10) { blocking++; }
+        if (c.gameObject.layer == 9 || c.gameObject.layer == 10 || c.gameObject.layer == 11) { blocking++; }
         else if (c.gameObject.layer == 8)
         {
             penguin = true;
@@ -51,7 +51,7 @@ public class PushDetect : MonoBehaviour {
     void OnTriggerExit2D(Collider2D c)
     {
 
-        if (c.gameObject.layer == 9 || c.gameObject.layer == 10) blocking--;
+        if (c.gameObject.layer == 9 || c.gameObject.layer == 10 || c.gameObject.layer ==11) blocking--;
         else if (c.gameObject.layer == 8) penguin = false; 
 
     }
