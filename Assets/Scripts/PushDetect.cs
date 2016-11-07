@@ -6,43 +6,52 @@ public class PushDetect : MonoBehaviour {
     private Rigidbody2D box;
     public bool stop { get; private set; }
     public GameObject otherside;
+    public int blocking; //{ get; private set; }
+    public bool penguin { get; private set; }
 
 	// Use this for initialization
 	void Start () {
         box = transform.parent.gameObject.GetComponent<Rigidbody2D>();
+        blocking = 0;
 	}
 	
     void Update()
     {
-        stop = false;
-
-    }
-
-	void OnCollisionEnter2D(Collision2D c)
-    {
-
-        if (c.gameObject.layer == 8 && c.gameObject.GetComponent<PenguinController>().groundHitYN && !otherside.GetComponent<PushDetect>().stop)
+        if (penguin && otherside.GetComponent<PushDetect>().blocking == 0)
         {
             box.constraints = RigidbodyConstraints2D.FreezeRotation;
-
         }
 
-        else
+        else if (!otherside.GetComponent<PushDetect>().penguin && blocking >0)
         {
             box.constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
-            stop = true;
         }
+
     }
 
-    void OnCollisionStay2D(Collision2D c)
+	void OnTriggerEnter2D(Collider2D c)
     {
-        stop = true;
+        if (c.gameObject.layer == 9 || c.gameObject.layer == 10) { blocking++; }
+        else if (c.gameObject.layer == 8)
+        {
+            penguin = true;
+
+        }
+        
     }
 
-    void OnCollisionExit2D(Collision2D c)
+    void OnTriggerStay2D(Collider2D c)
     {
 
+    }
 
+    
+
+    void OnTriggerExit2D(Collider2D c)
+    {
+
+        if (c.gameObject.layer == 9 || c.gameObject.layer == 10) blocking--;
+        else if (c.gameObject.layer == 8) penguin = false; 
 
     }
 
