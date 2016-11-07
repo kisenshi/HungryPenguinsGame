@@ -20,9 +20,7 @@ public class GameOverWrap : MonoBehaviour {
 			if(child!=gameObject) child.gameObject.SetActive (false);
 		}
 	}
-
-
-
+		
 	void OnDestroy(){
 		LevelManager.resume -= deactivateAll;
 		LevelManager.onDeath -= activateAll;

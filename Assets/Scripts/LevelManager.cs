@@ -44,7 +44,7 @@ public static class LevelManager{
 
 	}
 
-	public static void lose(){
+	public static void lose(string msg="You failed!"){
 		if (onDeath != null) onDeath();
 	}
 
