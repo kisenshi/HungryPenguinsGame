@@ -3,15 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class FishDisplay : PersistentUIInterface {
-
-
-
 	private bool updateNextFrame;
 
-
-
 	protected override void myStart(){
-		
 		initialize ();
 		LevelManager.onCollect += setCollected;
 	}

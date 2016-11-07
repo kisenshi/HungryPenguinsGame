@@ -17,54 +17,113 @@ public static class LevelManager{
 	public static event gameEvent onDeath;
 	public static event gameEvent onFinish;
 
+	// None, Hat
+	public static string penguinCostume;
 
-
-
-	public static void initialize(){
+	/*
+	* Initialized every element in the Level, loaded from the dynamic LevelData or set to the default values
+	*/
+	public static void initialize()
+	{
+		// The level Data set manually for each level is loaded to be used in the manager
 		ld = GameObject.Find ("LevelData").GetComponent<LevelData> ();
 		nTotalFish = ld.nTotalFish;
-		nCollectedFish = 0;
 		nextLevelTag = ld.nextLevelTag;
 
+		// The penguin starts the level with no collected fish and no costume
+		nCollectedFish = 0;
+		penguinCostume = "None";
 	}
 
+	/**
+	 * isPenguinDiscovered
+	 * Checks if the penguin is dressep up or not
+	 * If it's not dressep up, its costume is still None
+	 */
+	public static bool isPenguinDiscovered()
+	{
+		return (penguinCostume == "None");
+	}
+		
+	/**
+	 * isFinal
+	 * Checks if it's the final level
+	 */
 	public static bool isFinal(){
 		return ld.finalLevel;
-
 	}
 
+	/**
+	 * closeMenus
+	 * Triggers the resume event
+	 */
 	public static void closeMenus(){
 		if (resume != null) resume();
 	}
 
+	/**
+	 * collectFish
+	 * Called when the penguin collects a fish
+	 * Triggers the onCollect event
+	 */
 	public static void collectFish()
 	{
 		nCollectedFish ++;
 		if (onCollect != null) onCollect();
-
 	}
 
+	/*
+	 * collectCostume
+	 * Called when the penguin collects an object it will use to dress up
+	 * The penguinCostume status is updated, and the correct sprite loaded
+	 */
+	public static void collectCostume(string type)
+	{
+		penguinCostume = type;
+		// TODO Penguin sprite is updated with the penguin wearing the correct costume
+	}
+
+	/**
+	 * lose
+	 * Triggers the onDeath event
+	 */
 	public static void lose(string msg="You failed!"){
 		if (onDeath != null) onDeath();
 	}
 
+	/**
+	 * win
+	 * Triggers the onFinish event
+	 */
 	public static void win(){
 		if (onFinish != null) onFinish();
 	}
 
+	/**
+	 * isLevelCompleted
+	 * It checks if the level has been completed.
+	 * A level is completed when the penguin has collected enough fish.
+	 */
 	public static bool isLevelCompleted()
 	{
 		return nCollectedFish >= nTotalFish;
 	}
 
+	/**
+	 * restartLevel
+	 * Restarts the level reloading the current scene.
+	 */
 	public static void restartLevel(){
 		int scene = SceneManager.GetActiveScene().buildIndex;
 		SceneManager.LoadScene(scene, LoadSceneMode.Single);
 	}
 
+	/**
+	 * LoadNextLevel
+	 * Loads the next level using the nextLevelTag set in the data for the level.
+	 */
 	public static void LoadNextLevel(){
 		SceneManager.LoadScene(nextLevelTag, LoadSceneMode.Single);
-		//initialize ();
 	}
 		
 

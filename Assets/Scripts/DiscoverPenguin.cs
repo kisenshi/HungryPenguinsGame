@@ -8,8 +8,9 @@ public class DiscoverPenguin : MonoBehaviour {
 		// If the penguin collapses with the person, it is discovered and the end of level is triggered
 		if (c.gameObject.name == "Penguin")
 		{
-//			c.gameObject.SetActive(false);
-			LevelManager.lose ();
+			if (LevelManager.isPenguinDiscovered()) {
+				LevelManager.lose ();
+			}
 		}
 	}
 }
