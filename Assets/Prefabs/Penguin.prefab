@@ -132,6 +132,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accel: 8
   maxspeed: 3.5
+  foo:
+  - 
+  foo2:
+  - {fileID: 0}
 --- !u!114 &114000013445623450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,7 +176,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1efefa87064165949a99bad8a8c6fa03, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7182922690607401eac0e9ed15d789fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -10,14 +10,13 @@ public static class LevelManager{
 	public static string nextLevelTag;
 	private static LevelData ld;
 
-
 	public delegate void gameEvent();
 	public static event gameEvent resume;
 	public static event gameEvent onCollect;
 	public static event gameEvent onDeath;
 	public static event gameEvent onFinish;
 
-	// None, Hat
+	// NoCostume, Hat, Tie, HatAndTie
 	public static string penguinCostume;
 
 	/*
@@ -32,17 +31,17 @@ public static class LevelManager{
 
 		// The penguin starts the level with no collected fish and no costume
 		nCollectedFish = 0;
-		penguinCostume = "None";
+		penguinCostume = "NoCostume";
 	}
 
 	/**
 	 * isPenguinDiscovered
 	 * Checks if the penguin is dressep up or not
-	 * If it's not dressep up, its costume is still None
+	 * If it's not dressep up, its costume is still NoCostume
 	 */
 	public static bool isPenguinDiscovered()
 	{
-		return (penguinCostume == "None");
+		return (penguinCostume == "NoCostume");
 	}
 		
 	/**
@@ -80,7 +79,8 @@ public static class LevelManager{
 	public static void collectCostume(string type)
 	{
 		penguinCostume = type;
-		// TODO Penguin sprite is updated with the penguin wearing the correct costume
+		PenguinController penguin = GameObject.Find("Penguin").GetComponent<PenguinController>();
+		penguin.dressUp (type);
 	}
 
 	/**
