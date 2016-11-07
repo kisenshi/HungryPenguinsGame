@@ -20,29 +20,32 @@ public class PersonMovement : Grounded {
 	// Update is called once per frame
 	void Update () {
 
-        if (groundHitYN)
+        if (moving)
         {
 
-            Vector2 dir = facingright ? transform.right : -transform.right;
-            dir = dir * accel;
-            Walk(dir);
+            if (groundHitYN)
+            {
 
+                Vector2 dir = facingright ? transform.right : -transform.right;
+                dir = dir * accel;
+                Walk(dir);
+
+
+            }
+
+            else
+            {
+
+                float x = transform.localScale.x;
+                float y = transform.localScale.y;
+                facingright = !facingright;
+
+                transform.localScale = new Vector2(-x, y);
+
+                //gameObject.GetComponent<SpriteRenderer>().flipX = !facingright;
+            }
 
         }
-
-        else
-        {
-
-            float x = transform.localScale.x;
-            float y = transform.localScale.y;
-            facingright = !facingright;
-
-            transform.localScale = new Vector2(-x, y);
-
-            //gameObject.GetComponent<SpriteRenderer>().flipX = !facingright;
-        }
-
-
 
 	}
 
