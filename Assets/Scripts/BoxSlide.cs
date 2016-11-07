@@ -7,8 +7,7 @@ public class BoxSlide : MonoBehaviour {
     public float slideaccel;
     public int framestomove;
 
-    private int beingpushed = 0;
-    private int dir = 0;
+
 
 
 

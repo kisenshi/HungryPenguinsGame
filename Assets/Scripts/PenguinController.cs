@@ -2,16 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PenguinController : MonoBehaviour
+public class PenguinController : Grounded
 {
 
     Rigidbody2D r;
 	SpriteRenderer sr;
 
-    public bool groundHitYN
-    {
-        get; set;
-    }
 
     public float accel;
     public float maxspeed;
