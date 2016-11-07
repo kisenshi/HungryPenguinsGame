@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PenguinController : MonoBehaviour
+public class PenguinController : Grounded
 {
 
     Rigidbody2D r;
 
-    public bool groundHitYN
-    {
-        get; set;
-    }
 
     public float accel;
     public float maxspeed;
