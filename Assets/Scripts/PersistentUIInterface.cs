@@ -10,7 +10,7 @@ public abstract class PersistentUIInterface : MonoBehaviour {
 	//DO NOT IMPLEMENT IN CHILDREN
 	//OR ELSE
 	void Start(){
-		DontDestroyOnLoad (this.gameObject);
+		//DontDestroyOnLoad (this.gameObject);
 		myStart ();
 	}
 
