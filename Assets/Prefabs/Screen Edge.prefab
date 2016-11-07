@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012160998780}
   - 61: {fileID: 61000010081829280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Screen Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,13 +6,14 @@ public class PushDetect : MonoBehaviour {
     private Rigidbody2D box;
     public bool stop { get; private set; }
     public GameObject otherside;
-    public int blocking; //{ get; private set; }
+    public int blocking { get; private set; }
     public bool penguin { get; private set; }
 
 	// Use this for initialization
 	void Start () {
         box = transform.parent.gameObject.GetComponent<Rigidbody2D>();
         blocking = 0;
+        penguin = false;
 	}
 	
     void Update()
