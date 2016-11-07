@@ -22,7 +22,7 @@ GameObject:
   - 212: {fileID: 212000011178076212}
   - 61: {fileID: 61000013398145076}
   - 114: {fileID: 114000012263315602}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
