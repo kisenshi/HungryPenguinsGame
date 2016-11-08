@@ -11,6 +11,11 @@ public class PersonMovement : Grounded {
         get; private set;
     }
 	public bool solidahead;
+	private Quaternion rotation;
+
+
+	public GameObject warning;
+	public GameObject exclamation;
 
 	private int detections;
 	private bool seen;
@@ -38,13 +43,14 @@ public class PersonMovement : Grounded {
 		int i = detections > 0 ? 1 : 0;
 		i = seen ? 2 : i;
 		setSprite (i);
-		Debug.Log (i);
 	}
 
 
 
 	// Use this for initialization
 	void Start () {
+
+		rotation = gameObject.transform.rotation;
 
         if (flipped) flip();
         facingright = !flipped;
@@ -114,17 +120,35 @@ public class PersonMovement : Grounded {
 		switch (i) {
 
 		case 0:
-			break;
+			warning.SetActive (false);
+			exclamation.SetActive (false); break;
 		case 1:
-			break;
+			warning.SetActive (true);
+			exclamation.SetActive (false); 
+			fixChildRotation (warning); break;
 		case 2:
-			break;
+			warning.SetActive (false);
+			exclamation.SetActive (true); 
+			fixChildRotation (exclamation); break;
 		default:
-			break;
+			warning.SetActive (false);
+			exclamation.SetActive (false); break;
 
 
 		}
 
+	}
+
+	private void fixChildRotation(GameObject o){
+		float x = transform.localScale.x;
+		float y = transform.localScale.y;
+
+		float xo = o.transform.localScale.x;
+		float yo = o.transform.localScale.y;
+
+		xo = x*xo>0 ? xo : -xo;
+
+		o.transform.localScale = new Vector2 (xo, y);
 	}
 
 
