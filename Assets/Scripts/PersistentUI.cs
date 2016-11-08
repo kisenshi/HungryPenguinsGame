@@ -4,15 +4,18 @@ using System.Collections;
 public class PersistentUI : MonoBehaviour {
 
 	private static bool uiLoaded = false;
+	private bool realUI;
 
 	// Use this for initialization
 	void Start () {
+		realUI = false;
 		if (uiLoaded) {
 			Destroy (this.gameObject);
 		} 
 		else {
 			DontDestroyOnLoad (this.gameObject);
 			uiLoaded = true;
+			realUI = true;
 		}
 	}
 
@@ -25,12 +28,13 @@ public class PersistentUI : MonoBehaviour {
 
 
 		if (LevelManager.isFinal ()) {
-			uiLoaded = false;
 			Destroy (gameObject);
 		}
 	}
 
 	void OnDestroy(){
-
+		if (realUI) {
+			uiLoaded = false;
+		}
 	}
 }
