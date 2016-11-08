@@ -3,9 +3,17 @@ using System.Collections;
 
 public class PersistentUI : MonoBehaviour {
 
+	private static bool uiLoaded = false;
+
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad (this.gameObject);
+		if (uiLoaded) {
+			Destroy (this.gameObject);
+		} 
+		else {
+			DontDestroyOnLoad (this.gameObject);
+			uiLoaded = true;
+		}
 	}
 
 	// Update is called once per frame
@@ -17,7 +25,12 @@ public class PersistentUI : MonoBehaviour {
 
 
 		if (LevelManager.isFinal ()) {
+			uiLoaded = false;
 			Destroy (gameObject);
 		}
+	}
+
+	void OnDestroy(){
+
 	}
 }

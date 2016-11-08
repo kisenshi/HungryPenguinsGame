@@ -639,6 +639,10 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 365073076}
+    - target: {fileID: 1000011890762832, guid: 64512fc5f2f5947429603e71d0dce50f, type: 2}
+      propertyPath: m_Name
+      value: GUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64512fc5f2f5947429603e71d0dce50f, type: 2}
   m_IsPrefabParent: 0
@@ -684,6 +688,11 @@ Prefab:
     - target: {fileID: 1000010398571772, guid: c26066fff143d433fa767ce1c69c684f, type: 2}
       propertyPath: m_Name
       value: Penguin
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013427612640, guid: c26066fff143d433fa767ce1c69c684f,
+        type: 2}
+      propertyPath: maxspeed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c26066fff143d433fa767ce1c69c684f, type: 2}
