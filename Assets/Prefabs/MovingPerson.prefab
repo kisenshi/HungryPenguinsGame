@@ -221,9 +221,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.7138054, y: -0.68732595}
+  m_Offset: {x: 0.7138053, y: 0.11530573}
   serializedVersion: 2
-  m_Size: {x: 0.3065889, y: 2.374652}
+  m_Size: {x: 0.3065889, y: 3.9799151}
 --- !u!114 &114000010772188040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,10 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd109af8009060340beefeaccc777b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving: 0
+  moving: 1
   accel: 5
   maxSpeed: 10
-  flipped: 1
+  solidahead: 0
+  flipped: 0
 --- !u!114 &114000011955443542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,6 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74a6c401d7a442d4a0096f98ea4f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sightDistance: 1.5
+  warningDistance: 2
 --- !u!114 &114000012945623822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,6 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a74a6c401d7a442d4a0096f98ea4f1b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sightDistance: 1.5
+  warningDistance: 2
 --- !u!212 &212000013733990938
 SpriteRenderer:
   m_ObjectHideFlags: 1

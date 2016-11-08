@@ -6,6 +6,7 @@ public static class LevelManager{
 
 	public static int nTotalFish =0;
 	public static int nCollectedFish =0;
+	public static bool done = false;
 	public static int nLevel;
 	public static string nextLevelTag;
 	private static LevelData ld;
@@ -28,6 +29,7 @@ public static class LevelManager{
 		ld = GameObject.Find ("LevelData").GetComponent<LevelData> ();
 		nTotalFish = ld.nTotalFish;
 		nextLevelTag = ld.nextLevelTag;
+		done = false;
 
 		// The penguin starts the level with no collected fish and no costume
 		nCollectedFish = 0;
@@ -88,7 +90,10 @@ public static class LevelManager{
 	 * Triggers the onDeath event
 	 */
 	public static void lose(string msg="You failed!"){
-		if (onDeath != null) onDeath();
+		if (onDeath != null && !done) {
+			done = true;
+			onDeath ();
+		}
 	}
 
 	/**
@@ -96,7 +101,10 @@ public static class LevelManager{
 	 * Triggers the onFinish event
 	 */
 	public static void win(){
-		if (onFinish != null) onFinish();
+		if (onFinish != null && !done) {
+			done = true;
+			onFinish ();
+		}
 	}
 
 	/**

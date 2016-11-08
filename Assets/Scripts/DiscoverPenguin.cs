@@ -3,11 +3,12 @@ using System.Collections;
 
 public class DiscoverPenguin : MonoBehaviour {
 
-
+	public float sightDistance;
+	public float warningDistance;
 
     void Update()
     {
-        RaycastHit2D rh = Physics2D.Raycast(transform.position, transform.parent.gameObject.GetComponent<PersonMovement>().facingright ? transform.right : -transform.right, 1.5f, (1 << 8 | 1 << 9 | 1 << 10));
+        RaycastHit2D rh = Physics2D.Raycast(transform.position, transform.parent.gameObject.GetComponent<PersonMovement>().facingright ? transform.right : -transform.right, sightDistance, (1 << 8 | 1 << 9 | 1 << 10));
         if (rh && rh.collider.gameObject.layer == 8)
         {
             if (LevelManager.isPenguinDiscovered())
@@ -16,6 +17,11 @@ public class DiscoverPenguin : MonoBehaviour {
 
             }
         }
+
+	//	RaycastHit2D rhl = Physics2D.Raycast(transform.position, transform.parent.gameObject.GetComponent<PersonMovement>().facingright ? transform.right : -transform.right, warningDistance, (1 << 8));
+//		if (rhl & rhl.collider.gameObject.layer == 8) {
+
+	//	}
 
     }
 
