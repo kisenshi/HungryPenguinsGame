@@ -12,8 +12,29 @@ public class PersonMovement : Grounded {
     }
 	public bool solidahead;
 
+	private int detections;
+
     public bool flipped;
     private Rigidbody2D r;
+
+
+	public void suspectPenguin(){
+		detections++;
+		updateSprite ();
+	}
+
+	public void unsuspectPenguin(){
+		detections--;
+		updateSprite ();
+	}
+		
+	private void updateSprite(){
+		int i = detections > 0 ? 1 : 0;
+		setSprite (i);
+		Debug.Log (i);
+	}
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -78,6 +99,25 @@ public class PersonMovement : Grounded {
         r.velocity = groundHitYN ? r.velocity : new Vector2(0, y);
 
     }
+
+	public void setSprite(int i){
+
+		switch (i) {
+
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		default:
+			break;
+
+
+		}
+
+	}
+
 
     private void Walk(Vector2 dir)
     {

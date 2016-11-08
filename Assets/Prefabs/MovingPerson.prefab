@@ -247,11 +247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd109af8009060340beefeaccc777b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving: 1
+  moving: 0
   accel: 5
   maxSpeed: 10
   solidahead: 0
-  flipped: 0
+  flipped: 1
 --- !u!114 &114000011955443542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightDistance: 1.5
   warningDistance: 2
+  warning: 0
 --- !u!114 &114000012945623822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -290,6 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightDistance: 1.5
   warningDistance: 2
+  warning: 0
 --- !u!212 &212000013733990938
 SpriteRenderer:
   m_ObjectHideFlags: 1

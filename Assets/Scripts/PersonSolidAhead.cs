@@ -26,7 +26,6 @@ public class PersonSolidAhead : MonoBehaviour {
 	private void updateState(int numSolids){
 		solids += numSolids;
 		person.solidahead = solids > 0 ? true : false;
-		Debug.Log (solids);
 	}
 
     void OnTriggerExit2D(Collider2D c)
