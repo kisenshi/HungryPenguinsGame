@@ -21,6 +21,8 @@ public class PenguinController : Grounded
 		sr = GetComponent<SpriteRenderer> ();
         groundHitYN = false;
 		loadPenguinCostumes ();
+		LevelManager.onDeath += stop;
+		LevelManager.onFinish += stop;
 	}
 
 	/**
@@ -40,6 +42,13 @@ public class PenguinController : Grounded
 	}
 
 	/**
+	 * Freezes movement; used when the level ends or the player fails.
+	 * */
+	private void stop(){
+		gameObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+	}
+
+	/**
 	 * dressUp
 	 * Updates penguin skin
 	*/
@@ -50,9 +59,17 @@ public class PenguinController : Grounded
 		}
 	}
 
+	void OnDestroy(){
+		LevelManager.onDeath -= stop;
+		LevelManager.onFinish -= stop;
+	}
+
     // Update is called once per frame
     void Update()
     {
+
+
+		//Movement controls
         if (Input.GetKey(KeyCode.RightArrow))
         {
             Walk(transform.right * accel);
@@ -77,6 +94,8 @@ public class PenguinController : Grounded
 		float y = vel.velocity.y;
 		float x = vel.velocity.x;
 
+
+		//flip the sprite based upon the direction of movement
 		if (!sr.flipX && GetComponent<Rigidbody2D> ().velocity.x < -0.1) 
 		{
 			GetComponent<SpriteRenderer>().flipX=true; 
@@ -86,15 +105,18 @@ public class PenguinController : Grounded
 			GetComponent<SpriteRenderer>().flipX = false; 
 		}
 
+		//cap velocity at maxspeed
 		vel.velocity = x > maxspeed ? new Vector2(maxspeed,y) : x < -maxspeed ? new Vector2(-maxspeed,y) : vel.velocity;
 
     }
 
+	//Walk by adding a force in the direction of movement
     private void Walk(Vector2 dir)
     {
         r.AddForce(dir, ForceMode2D.Force);
     }
 
+	//Jump by adding a force upwards
     private void Jump()
     {
         if (groundHitYN)
