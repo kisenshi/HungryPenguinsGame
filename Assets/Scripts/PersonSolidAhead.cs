@@ -3,12 +3,15 @@ using System.Collections;
 
 public class PersonSolidAhead : MonoBehaviour {
 
-    public Grounded person;
+    public PersonMovement person;
+	private int solids;
 
     // Use this for initialization
     void Start()
     {
+		solids = 0;
         if (person.gameObject.layer == 11) person = transform.parent.gameObject.GetComponent<PersonMovement>();
+
     }
 
     void OnTriggerEnter2D(Collider2D c)
@@ -16,16 +19,22 @@ public class PersonSolidAhead : MonoBehaviour {
 
         if (person && (c.gameObject.layer == 9 || c.gameObject.layer == 10))
         {
-            person.groundHitYN = false;
+			updateState (1);
         }
     }
 
-    void OnTriggerStay2D(Collider2D c)
+	private void updateState(int numSolids){
+		solids += numSolids;
+		person.solidahead = solids > 0 ? true : false;
+		Debug.Log (solids);
+	}
+
+    void OnTriggerExit2D(Collider2D c)
     {
 
         if (person && (c.gameObject.layer == 9 || c.gameObject.layer == 10))
         {
-            person.groundHitYN = false;
+			updateState (-1);
         }
     }
 }

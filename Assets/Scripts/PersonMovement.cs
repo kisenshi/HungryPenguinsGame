@@ -10,6 +10,8 @@ public class PersonMovement : Grounded {
     {
         get; private set;
     }
+	public bool solidahead;
+
     public bool flipped;
     private Rigidbody2D r;
 
@@ -35,7 +37,7 @@ public class PersonMovement : Grounded {
         if (moving)
         {
 
-            if (groundHitYN)
+            if (groundHitYN && !solidahead)
             {
 
                 Vector2 dir = facingright ? transform.right : -transform.right;
