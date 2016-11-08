@@ -7,35 +7,39 @@ public class DiscoverPenguin : MonoBehaviour {
 	public float warningDistance;
 
 	public bool warning;
+	public bool seen;
 
 	void Start(){
 		warning = false;
+		seen = false;
 	}
 
     void Update()
     {
 
-		PersonMovement pm = transform.parent.gameObject.GetComponent<PersonMovement> ();
-        RaycastHit2D rh = Physics2D.Raycast(transform.position, pm.facingright ? transform.right : -transform.right, sightDistance, (1 << 8 | 1 << 9 | 1 << 10));
-        if (rh && rh.collider.gameObject.layer == 8)
-        {
-            if (LevelManager.isPenguinDiscovered())
-            {
-                LevelManager.lose();
+		if (!seen) {
+			PersonMovement pm = transform.parent.gameObject.GetComponent<PersonMovement> ();
 
-            }
-        }
+			RaycastHit2D rh = Physics2D.Raycast (transform.position, pm.facingright ? transform.right : -transform.right, sightDistance, (1 << 8 | 1 << 9 | 1 << 10));
+			RaycastHit2D rhl = Physics2D.Raycast (transform.position, pm.facingright ? transform.right : -transform.right, warningDistance, (1 << 8));
 
-		RaycastHit2D rhl = Physics2D.Raycast(transform.position, pm.facingright ? transform.right : -transform.right, warningDistance, (1 << 8));
-		if (rhl && rhl.collider.gameObject.layer == 8 && !warning) {
-			pm.suspectPenguin ();
-			warning = true;
-		} 
-		else if (warning && !rhl) {
-			pm.unsuspectPenguin ();
-			warning = false;
+
+			if (rh && rh.collider.gameObject.layer == 8 && LevelManager.isPenguinDiscovered ()) {
+				pm.seePenguin ();
+				seen = true;
+				LevelManager.lose ();
+
+			} 
+
+			else if (rhl && rhl.collider.gameObject.layer == 8 && !warning) {
+				pm.suspectPenguin ();
+				warning = true;
+			} 
+			else if (warning && !rhl) {
+				pm.unsuspectPenguin ();
+				warning = false;
+			}
 		}
-
     }
 
 

@@ -13,10 +13,16 @@ public class PersonMovement : Grounded {
 	public bool solidahead;
 
 	private int detections;
+	private bool seen;
 
     public bool flipped;
     private Rigidbody2D r;
 
+
+	public void seePenguin(){
+		seen = true;
+		updateSprite ();
+	}
 
 	public void suspectPenguin(){
 		detections++;
@@ -30,6 +36,7 @@ public class PersonMovement : Grounded {
 		
 	private void updateSprite(){
 		int i = detections > 0 ? 1 : 0;
+		i = seen ? 2 : i;
 		setSprite (i);
 		Debug.Log (i);
 	}
@@ -41,6 +48,8 @@ public class PersonMovement : Grounded {
 
         if (flipped) flip();
         facingright = !flipped;
+		seen = false;
+		detections = 0;
 
         if (!moving)
         {
