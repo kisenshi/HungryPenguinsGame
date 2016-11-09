@@ -9,6 +9,7 @@ public class DeathBarrier : MonoBehaviour {
 
 		if (c.gameObject.name == "Penguin")
 		{
+			GetComponent<AudioSource> ().Play ();
 			c.gameObject.SetActive(false);
 			LevelManager.lose ();
 		}

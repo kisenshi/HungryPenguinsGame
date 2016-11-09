@@ -7,11 +7,16 @@ public class FishDisplay : PersistentUIInterface {
 
 	protected override void myStart(){
 		initialize ();
-		LevelManager.onCollect += setCollected;
+		LevelManager.onCollect += getFish;
 	}
 
 	void initialize(){
 		updateNextFrame = true;
+		setCollected ();
+	}
+
+	void getFish(){
+		GetComponent<AudioSource> ().Play ();
 		setCollected ();
 	}
 
@@ -36,7 +41,7 @@ public class FishDisplay : PersistentUIInterface {
 	}
 
 	void OnDisable(){
-		LevelManager.onCollect -= setCollected;
+		LevelManager.onCollect -= getFish;
 	}
 
 

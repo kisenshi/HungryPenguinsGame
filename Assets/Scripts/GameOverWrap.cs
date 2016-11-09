@@ -12,6 +12,7 @@ public class GameOverWrap : MonoBehaviour {
 	private void activateAll(){
 		foreach (Transform child in transform) {
 			if(child!=gameObject) child.gameObject.SetActive (true);
+
 		}
 	}
 

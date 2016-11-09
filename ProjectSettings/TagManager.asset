@@ -6,6 +6,7 @@ TagManager:
   tags:
   - woodbox
   - icebox
+  - player
   layers:
   - Default
   - TransparentFX

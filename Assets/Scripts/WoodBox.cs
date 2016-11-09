@@ -4,7 +4,6 @@ using System.Collections;
 public class WoodBox : MonoBehaviour {
 
 
-
 	public void Freeze(){
 
 			gameObject.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
