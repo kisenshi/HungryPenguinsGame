@@ -24,7 +24,7 @@ GameObject:
   - 114: {fileID: 114000013028404984}
   - 114: {fileID: 114000013631604596}
   m_Layer: 5
-  m_Name: Button
+  m_Name: GameOverRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
