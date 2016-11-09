@@ -23,30 +23,26 @@ public class DiscoverPenguin : MonoBehaviour {
 			RaycastHit2D rh = Physics2D.Raycast (transform.position, pm.facingright ? transform.right : -transform.right, sightDistance, (1 << 8 | 1 << 9 | 1 << 10));
 			RaycastHit2D rhl = Physics2D.Raycast (transform.position, pm.facingright ? transform.right : -transform.right, warningDistance, (1 << 8));
 
-
-			if (rh && rh.collider.gameObject.layer == 8 && LevelManager.isPenguinDiscovered ()) {
+			if (rh && rh.collider.gameObject.layer == 8 && LevelManager.isPenguinDiscovered ()) 
+			{
 				pm.seePenguin ();
 				seen = true;
 				LevelManager.lose ();
 
-			} 
-
-			else if (rhl && rhl.collider.gameObject.layer == 8 && !warning) {
+			}
+			else if (rhl && rhl.collider.gameObject.layer == 8 && !warning && LevelManager.isPenguinDiscovered()) 
+			{
 				pm.suspectPenguin ();
 				warning = true;
 			} 
-			else if (warning && !rhl) {
+			else if (warning && !rhl) 
+			{
 				pm.unsuspectPenguin ();
 				warning = false;
 			}
 		}
     }
-
-
-
-
-
-
+		
 	void OnTriggerEnter2D(Collider2D c)
 	{
 		// If the penguin collapses with the person, it is discovered and the end of level is triggered
