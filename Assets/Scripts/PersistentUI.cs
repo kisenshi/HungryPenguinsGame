@@ -21,7 +21,12 @@ public class PersistentUI : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKeyDown(KeyCode.R))
+		{
+			// Player will be able to restart pressing R too
+			LevelManager.closeMenus ();
+			LevelManager.restartLevel ();
+		}
 	}
 		
 	void OnLevelWasLoaded(){
