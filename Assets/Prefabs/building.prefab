@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000011607404452}
   - 212: {fileID: 212000010667937116}
   - 61: {fileID: 61000014094619206}
+  - 251: {fileID: 251000011912284452}
   m_Layer: 10
   m_Name: building
   m_TagString: Untagged
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011174413404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.94, y: -3, z: 0}
+  m_LocalPosition: {x: -7.9513946, y: -1.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -51,10 +52,10 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_UsedByEffector: 1
+  m_Offset: {x: 0, y: 0.92744553}
   serializedVersion: 2
-  m_Size: {x: 2.61, y: 2}
+  m_Size: {x: 2.61, y: 0.14510942}
 --- !u!212 &212000010667937116
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -83,8 +84,25 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: d2ccc1daef58fd14f8f69948136cb43d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!251 &251000011912284452
+PlatformEffector2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011174413404}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
