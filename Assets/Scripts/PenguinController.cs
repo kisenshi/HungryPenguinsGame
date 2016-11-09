@@ -58,7 +58,7 @@ public class PenguinController : Grounded
 	public void dressUp(string type){
 		if (penguinCostumes.ContainsKey (type)) 
 		{
-			sr.sprite = penguinCostumes [type];
+			sprite.GetComponent<SpriteRenderer>().sprite = penguinCostumes [type];
 		}
 	}
 
