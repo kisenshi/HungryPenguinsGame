@@ -11,6 +11,7 @@ public class CollectFish : MonoBehaviour {
         {
 			Destroy (this.gameObject);
 			LevelManager.collectFish ();
+
         }
     }
 }
