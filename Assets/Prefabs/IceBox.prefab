@@ -23,7 +23,7 @@ GameObject:
   - 114: {fileID: 114000011314606598}
   m_Layer: 9
   m_Name: Left
-  m_TagString: Untagged
+  m_TagString: icebox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,7 +40,7 @@ GameObject:
   - 114: {fileID: 114000014143432120}
   m_Layer: 9
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: icebox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,9 +58,10 @@ GameObject:
   - 50: {fileID: 50000012970435900}
   - 114: {fileID: 114000012703572488}
   - 114: {fileID: 114000010901672564}
+  - 114: {fileID: 114000012810638574}
   m_Layer: 9
   m_Name: IceBox
-  m_TagString: Untagged
+  m_TagString: icebox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013747919142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.128, y: -1.478, z: 0}
+  m_LocalPosition: {x: -9.2, y: -1.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -116,12 +117,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.8
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1.25
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!61 &61000011158973272
 BoxCollider2D:
@@ -134,9 +135,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: fe60a004305354f89aa9364f605c23a0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.00095272064, y: 0}
+  m_Offset: {x: -0.0009536743, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.5478513, y: 0.67}
+  m_Size: {x: 0.53038156, y: 0.67}
 --- !u!68 &68000011752547442
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -150,9 +151,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -0.2691393, y: -0.33938658}
-  - {x: -0.2661562, y: 0.052826166}
-  - {x: -0.262887, y: 0.32639277}
+  - {x: -0.28759766, y: 0.25026727}
+  - {x: -0.28867912, y: -0.28715003}
 --- !u!68 &68000012654548042
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -166,14 +166,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 0.23930836, y: 0.29089165}
-  - {x: 0.26855755, y: 0.26797366}
-  - {x: 0.2687273, y: 0.20391965}
-  - {x: 0.14913177, y: 0.16926312}
-  - {x: 0.14766407, y: 0.04009545}
-  - {x: 0.14336967, y: -0.18159139}
-  - {x: 0.14415455, y: -0.2990464}
-  - {x: 0.17616749, y: -0.34015465}
+  - {x: 0.28257847, y: 0.29963696}
+  - {x: 0.27845097, y: -0.27895987}
 --- !u!114 &114000010901672564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +203,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9684fa3637e442eb9d52bd19059b54d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000012810638574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013747919142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82dc7e0a56f4a458895b376888415b48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114000014143432120

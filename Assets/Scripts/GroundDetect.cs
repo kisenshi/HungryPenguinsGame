@@ -20,6 +20,8 @@ public class GroundDetect : MonoBehaviour {
 
         if (character)
         {
+			if (!character.groundHitYN && GetComponent<AudioSource> ()!=null)
+				GetComponent<AudioSource> ().Play ();
             character.groundHitYN = true;
         }
     }

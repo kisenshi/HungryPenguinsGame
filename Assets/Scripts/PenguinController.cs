@@ -8,15 +8,18 @@ public class PenguinController : Grounded
     Rigidbody2D r;
 	SpriteRenderer sr;
 
+	private bool facingright;
 
     public float accel;
     public float maxspeed;
+	public GameObject sprite;
 
 	private Dictionary<string, Sprite> penguinCostumes;
 
     // Use this for initialization
     void Start()
     {
+		facingright = true;
         r = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer> ();
         groundHitYN = false;
@@ -55,7 +58,7 @@ public class PenguinController : Grounded
 	public void dressUp(string type){
 		if (penguinCostumes.ContainsKey (type)) 
 		{
-			sr.sprite = penguinCostumes [type];
+			sprite.GetComponent<SpriteRenderer>().sprite = penguinCostumes [type];
 		}
 	}
 
@@ -87,6 +90,15 @@ public class PenguinController : Grounded
         }
     }
 
+	private void flip(GameObject o){
+
+		float x = o.transform.localScale.x;
+		float y = o.transform.localScale.y;
+		facingright = !facingright;
+
+		o.transform.localScale = new Vector2 (-x, y);
+	}
+
     void LateUpdate()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -96,13 +108,15 @@ public class PenguinController : Grounded
 
 
 		//flip the sprite based upon the direction of movement
-		if (!sr.flipX && GetComponent<Rigidbody2D> ().velocity.x < -0.1) 
+		if (facingright && GetComponent<Rigidbody2D> ().velocity.x < -0.1) 
 		{
-			GetComponent<SpriteRenderer>().flipX=true; 
+			flip (sprite);
+		//	GetComponent<SpriteRenderer>().flipX=true; 
 		}
-        else if (sr.flipX && GetComponent<Rigidbody2D>().velocity.x >= 0.1) 
+		else if (!facingright && GetComponent<Rigidbody2D>().velocity.x >= 0.1) 
 		{ 
-			GetComponent<SpriteRenderer>().flipX = false; 
+			flip (sprite);
+			//GetComponent<SpriteRenderer>().flipX = false; 
 		}
 
 		//cap velocity at maxspeed
@@ -121,7 +135,7 @@ public class PenguinController : Grounded
     {
         if (groundHitYN)
         {
-            
+			GetComponent<AudioSource> ().Play ();   
             r.AddForce(transform.up * 300, ForceMode2D.Force);
         }
     }
