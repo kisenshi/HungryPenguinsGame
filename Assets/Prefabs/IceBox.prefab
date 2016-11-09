@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013747919142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.58, y: 3.71, z: 0}
+  m_LocalPosition: {x: -9.2, y: -1.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -135,9 +135,9 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: fe60a004305354f89aa9364f605c23a0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.00095272064, y: 0}
+  m_Offset: {x: -0.0009536743, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.5478513, y: 0.67}
+  m_Size: {x: 0.53038156, y: 0.67}
 --- !u!68 &68000011752547442
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -151,8 +151,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: -0.31686115, y: -0.1803143}
-  - {x: -0.32121372, y: 0.13020325}
+  - {x: -0.28759766, y: 0.25026727}
+  - {x: -0.28867912, y: -0.28715003}
 --- !u!68 &68000012654548042
 EdgeCollider2D:
   m_ObjectHideFlags: 1
@@ -166,8 +166,8 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 0.28552723, y: 0.15674877}
-  - {x: 0.2875185, y: -0.23940873}
+  - {x: 0.28257847, y: 0.29963696}
+  - {x: 0.27845097, y: -0.27895987}
 --- !u!114 &114000010901672564
 MonoBehaviour:
   m_ObjectHideFlags: 1
