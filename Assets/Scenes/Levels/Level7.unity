@@ -320,7 +320,7 @@ Prefab:
     - target: {fileID: 114000011776141462, guid: 4efbf6a096cb24380ae2257c42ffdbc6,
         type: 2}
       propertyPath: nextLevelTag
-      value: gameEnd
+      value: Level8
       objectReference: {fileID: 0}
     - target: {fileID: 114000011776141462, guid: 4efbf6a096cb24380ae2257c42ffdbc6,
         type: 2}
