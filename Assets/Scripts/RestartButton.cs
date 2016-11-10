@@ -15,7 +15,7 @@ public class RestartButton : MonoBehaviour {
 			restart ();
 		}
 
-		if (Input.GetKeyDown (KeyCode.Space)){
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Z)){
 			// Player is able to skip the info or game over screen pressing Space
 			if (gameObject.name == "GameOverRestart") {
 				restart ();
