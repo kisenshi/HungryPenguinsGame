@@ -14,7 +14,7 @@ public class PersonGroundAhead : MonoBehaviour {
 
 	}
 
-	void Update(){
+	void FixedUpdate(){
 		updateGrounded ();
 	}
     private bool isGround(Collider2D c)
@@ -27,6 +27,7 @@ public class PersonGroundAhead : MonoBehaviour {
 
 		if (person && (c.gameObject.layer == 9 || c.gameObject.layer == 10|| c.gameObject.layer == 15))
 		{grounds++;
+			updateGrounded ();
 			
            // person.groundHitYN = true;
         }
@@ -50,6 +51,7 @@ public class PersonGroundAhead : MonoBehaviour {
 
 		if (person && (c.gameObject.layer == 9 || c.gameObject.layer == 10|| c.gameObject.layer == 15))
 		{grounds--;
+			updateGrounded ();
 
         }
     }

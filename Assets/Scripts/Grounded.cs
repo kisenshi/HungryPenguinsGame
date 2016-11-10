@@ -3,10 +3,10 @@ using System.Collections;
 
 public abstract class Grounded : MonoBehaviour {
 
-    public bool groundHitYN
-    {
-        get; set;
-    }
+	public bool groundHitYN;
+    //{
+      //  get; set;
+   // }
 
     void Start()
     {

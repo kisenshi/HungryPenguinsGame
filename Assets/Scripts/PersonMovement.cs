@@ -83,7 +83,7 @@ public class PersonMovement : Grounded {
 
             }
 
-            else
+			else if(r.velocity.y==0)
             {
                 flip();
                
@@ -95,6 +95,8 @@ public class PersonMovement : Grounded {
 
 	}
 
+
+
     void flip()
     {
 
@@ -103,6 +105,8 @@ public class PersonMovement : Grounded {
         facingright = !facingright;
 
         transform.localScale = new Vector2(-x, y);
+
+		GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
     }
 
     void LateUpdate()
@@ -156,7 +160,7 @@ public class PersonMovement : Grounded {
 
     private void Walk(Vector2 dir)
     {
-        r.AddForce(dir, ForceMode2D.Impulse);
+		r.AddForce(dir, ForceMode2D.Impulse);
 		fixSpeed ();
     }
 }
