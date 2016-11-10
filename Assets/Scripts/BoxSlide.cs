@@ -26,10 +26,16 @@ public class BoxSlide : MonoBehaviour {
             vel.AddForce(x > 0 ? transform.right * slideaccel : -transform.right * slideaccel, ForceMode2D.Force);
         }
 
-
+		fixSpeed ();
     }
 
+	void fixSpeed(){
+		Rigidbody2D r = gameObject.GetComponent<Rigidbody2D>();
+		float y = r.velocity.y;
+		float x = r.velocity.x;
 
+		r.velocity = x > slidespeed ? new Vector2(slidespeed, y) : x < -slidespeed ? new Vector2(-slidespeed, y) : r.velocity;
+	}
 
 
 	/**void OnCollisionEnter2D(Collision2D c){

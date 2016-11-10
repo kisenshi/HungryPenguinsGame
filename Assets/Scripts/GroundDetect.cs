@@ -15,10 +15,10 @@ public class GroundDetect : MonoBehaviour {
         return true;
     }
 
-    void OnTriggerEnter2D()
+	void OnTriggerEnter2D(Collider2D c)
     {
 
-        if (character)
+		if (character && (c.gameObject.layer == 9 || c.gameObject.layer == 10|| c.gameObject.layer == 15))
         {
 			if (!character.groundHitYN && GetComponent<AudioSource> ()!=null)
 				GetComponent<AudioSource> ().Play ();
@@ -26,19 +26,19 @@ public class GroundDetect : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay2D()
+	void OnTriggerStay2D(Collider2D c)
     {
 
-        if (character)
+		if (character && (c.gameObject.layer == 9 || c.gameObject.layer == 10|| c.gameObject.layer == 15))
         {
             character.groundHitYN = true;
         }
     }
 
-    void OnTriggerExit2D()
+	void OnTriggerExit2D(Collider2D c)
     {
 
-        if (character)
+		if (character && (c.gameObject.layer == 9 || c.gameObject.layer == 10|| c.gameObject.layer == 15))
         {
             character.groundHitYN = false;
         }

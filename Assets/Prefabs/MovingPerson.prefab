@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013930733488}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.65, y: -1.47, z: 0}
+  m_LocalPosition: {x: -1.8, y: -1.41, z: 0}
   m_LocalScale: {x: 0.36770633, y: 0.27276585, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -268,9 +268,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.6512277, y: -2.196603}
+  m_Offset: {x: 0.65122783, y: -2.2545137}
   serializedVersion: 2
-  m_Size: {x: 0.34770176, y: 0.4497017}
+  m_Size: {x: 0.34770176, y: 0.33387524}
 --- !u!61 &61000012043176758
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -282,9 +282,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0.7138053, y: 0.11530573}
+  m_Offset: {x: 0.76393265, y: -0.0044626044}
   serializedVersion: 2
-  m_Size: {x: 0.3065889, y: 3.9799151}
+  m_Size: {x: 0.20633453, y: 3.8131297}
 --- !u!82 &82000010999727204
 AudioSource:
   m_ObjectHideFlags: 1
@@ -382,13 +382,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd109af8009060340beefeaccc777b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moving: 0
-  accel: 5
-  maxSpeed: 10
+  moving: 1
+  accel: 3
+  maxSpeed: 5
   solidahead: 0
   warning: {fileID: 1000014064176176}
   exclamation: {fileID: 1000013064437778}
-  flipped: 1
+  flipped: 0
 --- !u!114 &114000011955443542
 MonoBehaviour:
   m_ObjectHideFlags: 1
