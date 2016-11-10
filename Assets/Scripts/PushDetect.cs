@@ -6,7 +6,7 @@ public class PushDetect : MonoBehaviour {
     private WoodBox box;
     public bool stop { get; private set; }
     public GameObject otherside;
-    public int blocking { get; private set; }
+	public int blocking;//{ get; private set; }
     public bool penguin { get; private set; }
 
 
@@ -19,17 +19,16 @@ public class PushDetect : MonoBehaviour {
 	}
 	
     void Update()
-    {
-        if (penguin && otherside.GetComponent<PushDetect>().blocking == 0)
-        {
+	{
+		if (penguin && otherside.GetComponent<PushDetect> ().blocking == 0) {
 			box.unFreeze ();
-        }
-
-		else if (!otherside.GetComponent<PushDetect>().penguin && blocking >0)
-        {
+		} else if (!otherside.GetComponent<PushDetect> ().penguin && blocking > 0) {
 			box.Freeze ();
-        }
-    }
+		} else if (!penguin && transform.parent.GetComponent<Rigidbody2D> ().velocity.x == 0) {
+			box.Freeze ();
+		}
+
+	}
 
 
 
@@ -45,6 +44,8 @@ public class PushDetect : MonoBehaviour {
             penguin = true;
 
         }
+
+
         
     }
 

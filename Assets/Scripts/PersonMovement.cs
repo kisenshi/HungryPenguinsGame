@@ -107,11 +107,7 @@ public class PersonMovement : Grounded {
 
     void LateUpdate()
     {
-        float y = r.velocity.y;
-        float x = r.velocity.x;
-
-        r.velocity = x > maxSpeed ? new Vector2(maxSpeed, y) : x < -maxSpeed ? new Vector2(-maxSpeed, y) : r.velocity;
-        r.velocity = groundHitYN ? r.velocity : new Vector2(0, y);
+		fixSpeed ();
 
     }
 
@@ -151,9 +147,16 @@ public class PersonMovement : Grounded {
 		o.transform.localScale = new Vector2 (xo, y);
 	}
 
+	private void fixSpeed(){
+		float y = r.velocity.y;
+		float x = r.velocity.x;
+
+		r.velocity = x > maxSpeed ? new Vector2(maxSpeed, y) : x < -maxSpeed ? new Vector2(-maxSpeed, y) : r.velocity;
+	}
 
     private void Walk(Vector2 dir)
     {
-        r.AddForce(dir, ForceMode2D.Force);
+        r.AddForce(dir, ForceMode2D.Impulse);
+		fixSpeed ();
     }
 }

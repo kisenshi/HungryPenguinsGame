@@ -9,7 +9,7 @@ public class BoxFall : MonoBehaviour {
 		float x = vel.velocity.x;
 
 		if (y < -0)
-			vel.velocity = new Vector2 (x>1f ? 1f : x, y);
+			vel.velocity = new Vector2 (x>0.5f ? 0.5f : x<-0.5f ? -0.5f : x, y);
 
 	}
 }
