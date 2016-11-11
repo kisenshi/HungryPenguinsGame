@@ -2,6 +2,10 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/**
+ * Static helper class contain event management
+ * */
+
 public static class LevelManager{
 
 	public static int nTotalFish =0;
@@ -16,6 +20,8 @@ public static class LevelManager{
 	public static event gameEvent onCollect;
 	public static event gameEvent onDeath;
 	public static event gameEvent onFinish;
+
+
 
 	// NoCostume, Hat, Tie, HatAndTie
 	public static string penguinCostume;

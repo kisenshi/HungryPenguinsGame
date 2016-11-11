@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Detects whether a block can be pushed based on whether the penguin is pushing it and what objects block it on the other side
+ * */
+
 public class PushDetect : MonoBehaviour {
 
     private WoodBox box;

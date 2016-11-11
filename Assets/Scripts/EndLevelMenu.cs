@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
+/**
+ * Behavior to display end level menu on completion and undisplay it on clicking forward
+ * */
 public class EndLevelMenu : MonoBehaviour {
 
 	// Use this for initialization

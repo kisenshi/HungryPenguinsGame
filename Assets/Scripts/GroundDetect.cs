@@ -3,6 +3,10 @@ using System.Collections;
 
 public class GroundDetect : MonoBehaviour {
 
+	/**
+	 * Detects when the penguin is grounded
+	 * */
+
      PenguinController character;
 
     void Start()

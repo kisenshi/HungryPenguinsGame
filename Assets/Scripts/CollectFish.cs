@@ -3,6 +3,9 @@ using System.Collections;
 
 public class CollectFish : MonoBehaviour {
 
+	/**
+	 * Controls collection of fish pickups
+	 * */
 
     void OnTriggerEnter2D(Collider2D c)
     {

@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Controls the falling of box objects. In order to ensure consistent behaviour in puzzles, the maximum horizontal velocity while falling is limited.
+ * */
+
 public class BoxFall : MonoBehaviour {
 
 	void LateUpdate(){

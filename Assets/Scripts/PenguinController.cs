@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/**
+ * Defines behaviour and control of the penguin 
+ * */
+
 public class PenguinController : Grounded
 {
 

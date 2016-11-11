@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Makes UI safely persist between levels using singleton pattern
+ * */
+
 public class PersistentUI : MonoBehaviour {
+
+
 
 	private static bool uiLoaded = false;
 	private bool realUI;

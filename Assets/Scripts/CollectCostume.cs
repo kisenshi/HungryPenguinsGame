@@ -3,6 +3,10 @@ using System.Collections;
 
 public class CollectCostume : MonoBehaviour {
 
+	/**
+	 * Controls collection of costume pickups
+	 * */
+
 	public string type;
 
 	void Awake(){

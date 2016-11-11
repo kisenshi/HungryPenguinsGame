@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Controls the behaviour of sliding ice blocks.
+ * */
 public class BoxSlide : MonoBehaviour {
 
     public float slidespeed;
@@ -22,13 +25,17 @@ public class BoxSlide : MonoBehaviour {
 
 
 
+		//If it's already moving and isn't at max speed...
         if (x != 0 && x < slidespeed) {
+			//increase the speed
             vel.AddForce(x > 0 ? transform.right * slideaccel : -transform.right * slideaccel, ForceMode2D.Force);
         }
 
 		fixSpeed ();
     }
 
+
+	//ensures that max speed is clamped
 	void fixSpeed(){
 		Rigidbody2D r = gameObject.GetComponent<Rigidbody2D>();
 		float y = r.velocity.y;

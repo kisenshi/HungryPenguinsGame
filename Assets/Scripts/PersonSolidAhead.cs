@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Detects whether a solid object is ahead of a Person, to allow him to turn back around
+ * */
+
 public class PersonSolidAhead : MonoBehaviour {
 
     public PersonMovement person;

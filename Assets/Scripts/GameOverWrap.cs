@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/**
+ * Behavior to display game over menu on failure and undisplay it on clicking forward
+ * */
 public class GameOverWrap : MonoBehaviour {
 
 	// Use this for initialization

@@ -2,6 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
+
+/**
+ * Behaviour to display the number of fish collected and the max number in the level
+ * */
 public class FishDisplay : PersistentUIInterface {
 	private bool updateNextFrame;
 

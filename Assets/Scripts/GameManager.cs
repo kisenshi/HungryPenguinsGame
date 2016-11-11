@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
+//deprec
 public static class GameManager {
 
 	public static void restartLevel(){

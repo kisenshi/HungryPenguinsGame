@@ -1,26 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Controls the behaviour of a Person, including the ability to move back and forth along a platform
+ * */
+
 public class PersonMovement : Grounded {
 
-    public bool moving;
-    public float accel;
-    public float maxSpeed;
+    public bool moving;	//true if the person is to move
+    public float accel;	//acceleration rate
+    public float maxSpeed;	//maximum speed
     public bool facingright
     {
         get; private set;
     }
-	public bool solidahead;
+	public bool solidahead{ get; set; }
 	private Quaternion rotation;
 
 
-	public GameObject warning;
-	public GameObject exclamation;
+	public GameObject warning;	//reference to sprite to display upon "too close" warning
+	public GameObject exclamation;	//reference to sprite to display upon detection
 
 	private int detections;
 	private bool seen;
 
-    public bool flipped;
+    public bool flipped;	//true if the person is to initially face left
     private Rigidbody2D r;
 
 
@@ -57,6 +61,8 @@ public class PersonMovement : Grounded {
 		seen = false;
 		detections = 0;
 
+
+		//if it's not supposed to move, freeze it in place
         if (!moving)
         {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionX;
@@ -72,10 +78,10 @@ public class PersonMovement : Grounded {
 
         if (moving)
         {
-
+			//if there is ground ahead and nothing blocking movement
             if (groundHitYN && !solidahead)
             {
-
+				//walk forward
                 Vector2 dir = facingright ? transform.right : -transform.right;
                 dir = dir * accel;
                 Walk(dir);
@@ -85,6 +91,7 @@ public class PersonMovement : Grounded {
 
 			else if(r.velocity.y==0)
             {
+				//otherwise, turn around
                 flip();
                
 
